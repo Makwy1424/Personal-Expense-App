@@ -1,16 +1,8 @@
 # expense_app
+This is a Personal Expense App to keep track of your daily Expense. <br/>
+This will help you track your expense and is easy to use. The interfaces are really self-understandable. <br/>
 
-A new Flutter project.
-
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+These are some of the App interfaces: <br/>
+![alt text](https://github.com/Makwy1424/Personal-Expense-App/blob/main/images/expense%20app.png)<br/>
+![alt text](https://github.com/Makwy1424/Personal-Expense-App/blob/main/images/expense%20app2.png) <br/>
+[!alt text](https://github.com/Makwy1424/Personal-Expense-App/blob/main/images/pt3.png)<br/>
