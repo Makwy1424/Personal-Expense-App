@@ -6,29 +6,31 @@ class TransactionList extends StatelessWidget {
   final List<Transaction> transactions;
   final Function deleteTx;
 
-  const TransactionList(this.transactions,this.deleteTx);
+  const TransactionList(this.transactions, this.deleteTx);
 
   @override
   Widget build(BuildContext context) {
     return transactions.isEmpty
-        ? Column(
-            children: <Widget>[
-              Text(
-                'No Transactions added yet!',
-                style: Theme.of(context).textTheme.titleLarge,
-              ),
-              const SizedBox(
-                height: 10,
-              ),
-              SizedBox(
-                height: 200,
-                child: Image.asset(
-                  'assets/image/waiting.png',
-                  fit: BoxFit.cover,
+        ? LayoutBuilder(builder: (ctx, constraints) {
+            return Column(
+              children: <Widget>[
+                Text(
+                  'No Transactions added yet!',
+                  style: Theme.of(context).textTheme.titleLarge,
                 ),
-              ),
-            ],
-          )
+                const SizedBox(
+                  height: 10,
+                ),
+                SizedBox(
+                  height: constraints.maxHeight * 0.6,
+                  child: Image.asset(
+                    'assets/image/waiting.png',
+                    fit: BoxFit.cover,
+                  ),
+                ),
+              ],
+            );
+          })
         : ListView.builder(
             itemBuilder: (ctx, index) {
               return Card(
@@ -60,11 +62,22 @@ class TransactionList extends StatelessWidget {
                   subtitle: Text(
                     DateFormat.yMMMd().format(transactions[index].date),
                   ),
-                  trailing: IconButton(
-                    icon: Icon(Icons.delete),
-                    color: Colors.red,
-                    onPressed:()=> deleteTx(transactions[index].id),
-                  ),
+                  trailing: MediaQuery.of(context).size.width > 410
+                      ? TextButton.icon(
+                          icon: Icon(Icons.delete),
+                          label: const Text(
+                            'Delete',
+                            style: TextStyle(
+                              color: Colors.red,
+                            ),
+                          ),
+                          onPressed: () => deleteTx(transactions[index].id),
+                        )
+                      : IconButton(
+                          icon: Icon(Icons.delete),
+                          color: Colors.red,
+                          onPressed: () => deleteTx(transactions[index].id),
+                        ),
                 ),
               );
             },
